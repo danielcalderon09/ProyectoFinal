@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Colonial Villavieja</title>
+    <link rel="icon" href="/img/jardin/logo-jardin.jpeg">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <div id="container">
+        <div class="barra-nav">
+            <header>
+                <div class="header-logo animete">
+                    <div class="logo-pagina">
+                    <a href="index.html"><img src="img/logo/logo.png" alt="LOGO HOTEL COLONIAL VILLAVIEJA"></a>
+                    </div>
+                    <div class="titulo-header">
+                    <h1>Hotel Colonial Villavieja</h1>
+                </div>
+
+                <div class="registro">
+                    <ul>
+                        <li sec:authorize="isAuthenticated()">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                <button type="submit" class="btn btn-link navbar-btn">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    
+                        <li class="idioma">
+                            <a href="">Idioma</a>
+                            <ul>
+                                <li><a href="">Ingles</a></li>
+                                <li><a href="">Frances</a></li>
+                                <li><a href="">Aleman</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                </div>
+
+            </header>
+
+                <nav id="main-menu">
+                    <ul>
+                        <li><a th:href="@{/index.html}">Inicio</a></li>
+                        <li><a th:href="@{/reserva.html}">Reserva</a></li>
+                        <li><a th:href="@{/servicios.html}">Servicios</a></li>
+                        <li><a th:href="@{/nosotros.html}">Acerca de nosotros</a></li>
+                        <li class="contactanos"><a
+                                href="https://l.instagram.com/?u=https%3A%2F%2Fbit.ly%2FRESERVAR__AHORA&e=AT30RcdlRWnoybxW4RqNMEoTm6zWd-Z3y_cnJ1gAKymBcj849QDdq0r_VUlv3azA-QzWV-YYsQpyiS30wimWvTCQiREm3Q5fLisGyg">Contactanos
+                                <img src="img/redes/whatsapp.png" alt=""></a></li>
+
+                    </ul>
+                </nav> 
+
+            
+        </div>
+    </div>
+
+    <section id="container">
+        <div class="carrusel-prime">
+            <article>
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                            aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/carrusel/jardin.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Jardín</h5>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/carrusel/escaleras.JPG" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Segundo Piso</h5>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/carrusel/piscina.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Piscina</h5>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/carrusel/recepcion.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>recepción</h5>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/carrusel/comedor.JPG" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Comedor</h5>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/carrusel/piscina-2.jpeg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Piscina</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </article>
+        </div>
+
+        <div class="habitacion-2camas">
+            <article>
+                <h2>Habitación 2 camas dobles</h2>
+                <div class="img-habitacion">
+
+                    <div class="img-container">
+                        <img src="img/habitaciones/habitacion-2camas.JPG" alt="Habitacion 2 camas">
+                        <p>Capacidad maxima 4 personas</p>
+                    </div>
+                </div>
+                <div class="imgen-icono">
+                    <div class="text-ico">
+                        <h3>Habitacion 2 camas</h3>
+                        <img src="img/iconos/cama.png" alt="2 camas dobles">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Aire acondicionado</h3>
+                        <img src="img/iconos/aire-acondicionado.png" alt="Aire acondicionado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Wifi</h3>
+                        <img src="img/iconos/wifi.png" alt="Wifi">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Baño privado</h3>
+                        <img src="img/iconos/ducha.png" alt="Baño privado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Tv</h3>
+                        <img src="img/iconos/monitor-de-tv.png" alt="Tv">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Desayuno</h3>
+                        <img src="img/iconos/desayuno.png" alt="Desayuno">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Parqueadero</h3>
+                        <img src="img/iconos/aparcamiento.png" alt="Parqueadero">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Piscina</h3>
+                        <img src="img/iconos/piscina.png" alt="Piscina">
+
+
+                    </div>
+
+                    <div class="boton-container">
+                        <button class="boton-habitacion" th:onclick="|window.location.href = '@{/reserva.html}'|">Reservar</button>
+                    </div>
+
+                </div>
+
+            </article>
+        </div>
+
+        <div class="habitacion-1cama">
+            <article>
+                <h2>Habitación 1 cama doble</h2>
+                <div class="img-habitacion">
+
+                    <div class="img-container">
+                        <img src="img/habitaciones/habitacion-1cama.jpeg" alt="Habitacion 2 camas">
+                        <p>Capacidad maxima 2 personas</p>
+                    </div>
+                </div>
+                <div class="imgen-icono-2">
+                    <div class="text-ico">
+                        <h3>1 cama doble</h3>
+                        <img src="img/iconos/cama.png" alt="2 camas dobles">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Aire acondicionado</h3>
+                        <img src="img/iconos/aire-acondicionado.png" alt="Aire acondicionado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Wifi</h3>
+                        <img src="img/iconos/wifi.png" alt="Wifi">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Baño privado</h3>
+                        <img src="img/iconos/ducha.png" alt="Baño privado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Tv</h3>
+                        <img src="img/iconos/monitor-de-tv.png" alt="Tv">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Desayuno</h3>
+                        <img src="img/iconos/desayuno.png" alt="Desayuno">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Parqueadero</h3>
+                        <img src="img/iconos/aparcamiento.png" alt="Parqueadero">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Piscina</h3>
+                        <img src="img/iconos/piscina.png" alt="Piscina">
+                    </div>
+
+
+
+                    <div class="boton-container">
+                        <button class="boton-habitacion"
+                            onclick="window.location.href = 'reserva.html';">Reserva</button>
+
+                    </div>
+
+                </div>
+            </article>
+        </div>
+
+        <div class="reserva-nosotros-container">
+            <div class="reserva-nosotros">
+                <article>
+                    <h2>¿Por qué reservar con nosotros?</h2>
+                    <p>Al reservar con nosotros, usted elige una experiencia hotelera excepcional que va más allá de
+                        simples
+                        comodidades. Nuetras impecables habitaciones y nuestros servicios ayudaran a sentirte como en
+                        casa,
+                        cada aspecto está diseñado para garantizar su máximo confort y satisfacción. Además,
+                        ofrecemos la oportunidad de explorar el Desierto de la Tatacoa con experiencias
+                        únicas e inolvidables. <br>
+                        Después de un día de aventuras, nuestro hotel les brinda el espacio perfecto
+                        para
+                        relajarse y recargar energías, mientras nuestro equipo dedicado asegura que cada momento de su
+                        estadía sea espectacular.</p>
+                </article>
+            </div>
+            <div class="img-porque-reserva">
+                <div class="img-porque">
+                    <img src="img/porque-reservar/desierto-pareja.jpeg" alt="">
+                    <img src="img/porque-reservar/decoracion.jpeg" alt="">
+                </div>
+                <div class="img-porque">
+                    <img src="img/porque-reservar/tatacoa-race.jpg" alt="">
+                    <img src="img/porque-reservar/cerveza.jpg" alt="">
+                </div>
+
+            </div>
+            <div class="boton-container-final">
+                <button class="boton-reserva-final" onclick="window.location.href = 'reserva.html';">Reservar</button>
+
+            </div>
+        </div>
+
+
+    </section>
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href=""><img src="img/carrusel/piscina.jpeg" alt="logo"></a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Ofrecemos una experiencia cálida y acogedora donde cada detalle se cuida con amor. </p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="" class="facebook"><img src="img/redes/facebook.png" alt=""></a>
+                    <a href="" class="instagram"><img src="img/redes/instagram.png" alt=""></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>CONTACTANOS</h2>
+                <div class="contacto">
+                    <h3>Contactanos</h3>
+                    <a href=""><img src="img/redes/whatsapp.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="grupo-2">
+            <small> &copy; 2024 <b>Hotel Colonial Villavieja </b> - Todos los derechos reservados </small>
+        </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="/index.js"></script>
+</body>
+
+</html>

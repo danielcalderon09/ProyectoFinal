@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Colonial Villavieja</title>
+    <link rel="icon" href="img/jardin/logo-jardin.jpeg">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="/reserva-final.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="container">
+    <div class="barra-nav">
+        <header>
+            <div class="header-logo animete">
+                <div class="logo-pagina">
+                    <a href="index.html"><img src="img/logo/logo.png" alt="LOGO HOTEL COLONIAL VILLAVIEJA"></a>
+                </div>
+                <div class="titulo-header">
+                    <h1>Hotel Colonial Villavieja</h1>
+                </div>
+
+                <div class="registro">
+                    <ul>
+                        <li sec:authorize="isAuthenticated()">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                <button type="submit" class="btn btn-link navbar-btn">Cerrar sesión</button>
+                            </form>
+                        </li>
+
+                        <li class="idioma">
+                            <a href="">Idioma</a>
+                            <ul>
+                                <li><a href="">Ingles</a></li>
+                                <li><a href="">Frances</a></li>
+                                <li><a href="">Aleman</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+
+        <nav id="main-menu">
+            <ul>
+                <li><a th:href="@{/index.html}">Inicio</a></li>
+                <li><a th:href="@{/reserva.html}">Reserva</a></li>
+                <li><a th:href="@{/servicios.html}">Servicios</a></li>
+                <li><a th:href="@{/nosotros.html}">Acerca de nosotros</a></li>
+                <li class="contactanos"><a
+                        href="https://l.instagram.com/?u=https%3A%2F%2Fbit.ly%2FRESERVAR__AHORA&e=AT30RcdlRWnoybxW4RqNMEoTm6zWd-Z3y_cnJ1gAKymBcj849QDdq0r_VUlv3azA-QzWV-YYsQpyiS30wimWvTCQiREm3Q5fLisGyg">Contactanos
+                    <img src="img/redes/whatsapp.png" alt=""></a></li>
+
+            </ul>
+        </nav>
+
+
+    </div>
+</div>
+
+    <div class="reserva-final-container">
+        <main id="main">
+          <header class="h2-container">
+            <h2>Datos de la reserva</h2>
+          </header>
+
+          <section class="form-container">
+            <form action="" id="reserva-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" id="nombre-reserva" name="nombre" required>
+                  <span id="alert-reserva-nombre" class="alert-reserva-final"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" id="apellido-reserva" name="apellido" >
+
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="number" id="telefono-reserva" name="telefono" required>
+                  <span id="alert-reserva-telefono" class="alert-reserva-final"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email-reserva" name="email" required>
+                  <span id="alert-reserva-email" class="alert-reserva-final"></span>
+                </div>
+              </div>
+
+              <div class="form-group form-posicion">
+                <label for="privacidad" class="privacidad-label">Aceptar términos de privacidad</label>
+                <input type="checkbox" id="privacidad-reserva" name="privacidad" required class="diseño-check" >
+                <span id="alert-checkbox" class="alert-reserva-final"></span>
+              </div>
+
+              <button type="submit" id="btn-reserva-final" for="reserva-form">Reserva</button>
+            </form>
+          </section>
+        </main>
+      </div>
+
+<footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href=""><img src="img/carrusel/piscina.jpeg" alt="logo"></a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Ofrecemos una experiencia cálida y acogedora donde cada detalle se cuida con amor. </p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="" class="facebook"><img src="img/redes/facebook.png" alt=""></a>
+                <a href="" class="instagram"><img src="img/redes/instagram.png" alt=""></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>CONTACTANOS</h2>
+            <div class="contacto">
+                <h3>Contactanos</h3>
+                <a href=""><img src="img/redes/whatsapp.png" alt=""></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="grupo-2">
+        <small> &copy; 2024 <b>Hotel Colonial Villavieja </b> - Todos los derechos reservados </small>
+    </div>
+
+</footer>
+    <script src="reserva-final.js"></script>
+</body>
+</html>

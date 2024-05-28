@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Colonial Villavieja</title>
+    <link rel="icon" href="img/jardin/logo-jardin.jpeg">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/reserva-style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+<div id="container">
+    <div class="barra-nav">
+        <header>
+            <div class="header-logo animete">
+                <div class="logo-pagina">
+                    <a href="index.html"><img src="img/logo/logo.png" alt="LOGO HOTEL COLONIAL VILLAVIEJA"></a>
+                </div>
+                <div class="titulo-header">
+                    <h1>Hotel Colonial Villavieja</h1>
+                </div>
+
+                <div class="registro">
+                    <ul>
+                        <li sec:authorize="isAuthenticated()">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                <button type="submit" class="btn btn-link navbar-btn">Cerrar sesión</button>
+                            </form>
+                        </li>
+
+                        <li class="idioma">
+                            <a href="">Idioma</a>
+                            <ul>
+                                <li><a href="">Ingles</a></li>
+                                <li><a href="">Frances</a></li>
+                                <li><a href="">Aleman</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+
+        <nav id="main-menu">
+            <ul>
+                <li><a th:href="@{/index.html}">Inicio</a></li>
+                <li><a th:href="@{/reserva.html}">Reserva</a></li>
+                <li><a th:href="@{/servicios.html}">Servicios</a></li>
+                <li><a th:href="@{/nosotros.html}">Acerca de nosotros</a></li>
+                <li class="contactanos"><a
+                        href="https://l.instagram.com/?u=https%3A%2F%2Fbit.ly%2FRESERVAR__AHORA&e=AT30RcdlRWnoybxW4RqNMEoTm6zWd-Z3y_cnJ1gAKymBcj849QDdq0r_VUlv3azA-QzWV-YYsQpyiS30wimWvTCQiREm3Q5fLisGyg">Contactanos
+                    <img src="img/redes/whatsapp.png" alt=""></a></li>
+
+            </ul>
+        </nav>
+
+
+    </div>
+</div>
+
+    <main class="container" id="reserva-1">
+
+        <div class="reserva">
+        <h1 class="title-reserva">Reserva Ahora</h1>
+
+        <form>
+
+            <div class="form-group">
+                <div class="input-field check-in">
+                    <label for="check-in">Check-in</label>
+                    <input type="date" id="check-in" name="check-in" placeholder="Check-in" required>
+                    <span id="alert-check-in" class="alert-form"></span>
+                </div>
+
+                <div class="input-field check-out">
+                    <label for="check-out">Check-out</label>
+                    <input type="date" id="check-out" name="check-out" placeholder="Check-out" required>
+                    <span id="alert-check-out" class="alert-form"></span>
+                </div>
+
+                <div class="input-field cantidad-personas">
+                    <label for="cantidad-personas">Personas</label>
+                    <select name="cantidad-personas" id="cantidad-personas" required>
+                        <option selected>seleccionar</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                    <span id="alert-personas" class="alert-form"></span>
+                </div>
+            </div>
+
+            <div class="boton-reserva">
+                <button id="btn-reserva-1" type="button">Reservar</button>
+            </div>
+
+        </form>
+
+    </div>
+    </main>
+
+
+    <section id="habitaciones" class="ocultar">
+        <div class="habitacion-2camas" id="habitacion-2-camas">
+            <article>
+                <h2>Habitación 2 camas]</h2>
+                <div class="img-habitacion">
+
+                    <div class="img-container">
+                        <img src="img/habitaciones/habitacion-2camas.JPG" alt="Habitacion 2 camas">
+                        <p>Capacidad maxima 4 personas</p>
+                    </div>
+                </div>
+                <div class="imgen-icono">
+                    <div class="text-ico">
+                        <h3>2 camas dobles</h3>
+                        <img src="img/iconos/cama.png" alt="2 camas dobles">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Aire acondicionado</h3>
+                        <img src="img/iconos/aire-acondicionado.png" alt="Aire acondicionado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Wifi</h3>
+                        <img src="img/iconos/wifi.png" alt="Wifi">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Baño privado</h3>
+                        <img src="img/iconos/ducha.png" alt="Baño privado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Tv</h3>
+                        <img src="img/iconos/monitor-de-tv.png" alt="Tv">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Desayuno</h3>
+                        <img src="img/iconos/desayuno.png" alt="Desayuno">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Parqueadero</h3>
+                        <img src="img/iconos/aparcamiento.png" alt="Parqueadero">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Piscina</h3>
+                        <img src="img/iconos/piscina.png" alt="Piscina">
+
+
+                    </div>
+
+                    <div class="boton-container">
+                        <button class="boton-habitacion"   id="btn-seleccionar">Seleccionar</button>
+
+                    </div>
+
+                </div>
+
+            </article>
+        </div>
+
+        <div class="habitacion-1cama" id="habitacion-1-cama" >
+            <article>
+                <h2>Habitacion con 1 cama doble</h2>
+                <div class="img-habitacion">
+
+                    <div class="img-container">
+                        <img src="img/habitaciones/habitacion-1cama.jpeg" alt="Habitacion 2 camas">
+                        <p>Capacidad maxima 2 personas</p>
+                    </div>
+                </div>
+                <div class="imgen-icono">
+                    <div class="text-ico">
+                        <h3>1 cama doble</h3>
+                        <img src="img/iconos/cama.png" alt="2 camas dobles">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Aire acondicionado</h3>
+                        <img src="img/iconos/aire-acondicionado.png" alt="Aire acondicionado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Wifi</h3>
+                        <img src="img/iconos/wifi.png" alt="Wifi">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Baño privado</h3>
+                        <img src="img/iconos/ducha.png" alt="Baño privado">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Tv</h3>
+                        <img src="img/iconos/monitor-de-tv.png" alt="Tv">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Desayuno</h3>
+                        <img src="img/iconos/desayuno.png" alt="Desayuno">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Parqueadero</h3>
+                        <img src="img/iconos/aparcamiento.png" alt="Parqueadero">
+                    </div>
+
+                    <div class="text-ico">
+                        <h3>Piscina</h3>
+                        <img src="img/iconos/piscina.png" alt="Piscina">
+                    </div>
+
+
+
+                    <div class="boton-container">
+                        <button class="boton-habitacion" id="btn-seleccionar-2">Seleccionar</button>
+
+                    </div>
+
+                </div>
+            </article>
+        </div>
+
+
+        <div class="tarjeta-container ocultar" id="tarjeta-reserva" >
+            <article>
+                <div class="titulo-tarjeta">
+                    <h1>¿Desea seleccionar alguno de nuestros servicios?</h1>
+                </div>
+            <div class="servicio-container">
+                <div class="servicio-1 " id="tarjeta-1">
+                    <div class="card" >
+                        <div class="card-image-container">
+                        <img src="img/servicios/desierto-tatacoa-1.jpg" class="card-img-top" alt="...">
+                         </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Desierto de la tatacoa</h5>
+
+                            <p class="card-text">Disfruta de nuestro tour de 4 horas por el desierto de la tatacoa
+                                donde podras visiar los principales puntos turisticos, desierto rojo, desierto gris, miradores y piscina Oasis</p>
+
+
+                                <div class="boton-container-tarjeta">
+                                    <button class="boton-tarjeta-1" id="btn-tarjeta-1">Seleccionar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="servicio-1" id="tarjeta-2">
+                    <div class="card" >
+                        <div class="card-image-container">
+                        <img src="img/servicios/desierto-gris-1.jpg" class="card-img-top" alt="...">
+                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Xilopalos</h5>
+
+                            <p class="card-text">Disfruta de un tour de todo el dia por los dos desiertos, en este
+                                tour veremos un sitio llamado xilopalos el cual se caracteriza por sus cañones y
+                                miradores sobre el desierto gris.</p>
+
+                                <div class="boton-container-tarjeta">
+                                    <button class="boton-tarjeta-1" id="btn-tarjeta-2">Seleccionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="servicio-1" id="tarjeta-3">
+                    <div class="card" >
+                        <div class="card-image-container">
+                        <img src="img/servicios/observatorio-1.jpg" class="card-img-top" alt="...">
+                         </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Observatorio</h5>
+                            <p class="card-text">El observatorio funciona de 7:00 pm - 9:00 pm donde la primera hora es una charla astronomica y luego pasan
+                            a los telescopios para que puedan apreciar las constelaciones y los planetas.</p>
+
+                            <div class="boton-container-tarjeta">
+                                <button class="boton-tarjeta-1" id="btn-tarjeta-3">Seleccionar</button>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="boton-tarjeta-reserva">
+                    <button class="boton-reserva-tarjeta" onclick="window.location.href = 'reserva-final.html';">Reserva</button>
+                </div>
+
+            </article>
+        </div>
+
+
+
+
+
+        
+    </div>
+    </section>
+
+<footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href=""><img src="img/carrusel/piscina.jpeg" alt="logo"></a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Ofrecemos una experiencia cálida y acogedora donde cada detalle se cuida con amor. </p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="" class="facebook"><img src="img/redes/facebook.png" alt=""></a>
+                <a href="" class="instagram"><img src="img/redes/instagram.png" alt=""></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>CONTACTANOS</h2>
+            <div class="contacto">
+                <h3>Contactanos</h3>
+                <a href=""><img src="img/redes/whatsapp.png" alt=""></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="grupo-2">
+        <small> &copy; 2024 <b>Hotel Colonial Villavieja </b> - Todos los derechos reservados </small>
+    </div>
+
+</footer>
+
+    <script src="reserva.js"></script>
+</body>
+
+</html>

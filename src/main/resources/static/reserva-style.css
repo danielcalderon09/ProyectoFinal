@@ -1,0 +1,371 @@
+
+main{
+  margin-top: 10px;
+  
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.reserva {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título */
+.title-reserva {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #f2bd68;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.title-reserva:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulario */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+label{
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+
+}
+.input-field {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.input-field:focus{
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.check-in {
+  width: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  margin-right: 20px;
+}
+
+.check-out {
+  width: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  margin-right: 20px;
+}
+
+.cantidad-personas {
+  width: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.cantidad-personas label {
+  margin-right: 10px;
+}
+
+.cantidad-personas select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Botón de reserva */
+.boton-reserva {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.boton-reserva button {
+  padding: 10px 20px;
+  background-color: #f2bd68;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.boton-reserva button:hover {
+  background-color: #f5cb87;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.check-in::-webkit-inner-spin-button,
+.check-out::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.check-in::-webkit-calendar-picker-indicator,
+.check-out::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.check-in input[type="date"],
+.check-out input[type="date"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  color: #666;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Media queries para responsive design */
+@media (max-width: 768px) {
+ .reserva {
+    max-width: 600px;
+  }
+ .input-field {
+   width: 100%;
+  }
+  .check-in {
+    margin-right: 0;
+  }
+  .check-out {
+    margin-left: 0;
+  }
+  .cantidad-personas {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .reserva {
+    max-width: 400px;
+  }
+  .input-field {
+    width: 100%;
+  }
+  .check-in {
+    margin-right: 0;
+  }
+  .check-out {
+    margin-left: 0;
+  }
+  .cantidad-personas {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+
+
+.tarjeta-container{
+  align-items: center;
+  width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #080808;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+ }
+
+    .titulo-tarjeta{
+      text-align: center;
+      margin-bottom: 20px ;
+    }
+
+    .titulo-tarjeta h1{
+      font-size:35px;
+    }
+
+    .servicio-container{
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 20px;
+    }
+
+    .servicio-1{
+      width: 100%;
+      max-width: 800px;
+      margin-left: 20px;
+      height: auto;
+      transition: transform .3s ease;
+    }
+
+    .servicio-1:hover{
+      transform: scale(0.9);
+    }
+
+    .card {
+      margin: auto 30px;
+      width: 80%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 18rem;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-title {
+      font-weight: bold;
+    }
+
+    .card-text {
+      text-align: justify;
+      
+    }
+
+
+    .btn-seleccionar{
+      display: flex;
+      justify-content: center;
+    }
+
+
+
+    .boton-container-tarjeta {
+      margin: 0px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .boton-tarjeta-1{
+      display: block;
+      margin-top: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+  .boton-tarjeta-1:hover{
+    background-color: #00a800;
+  }
+
+
+.boton-tarjeta-reserva{
+  display: flex;
+  justify-content: center;
+}
+
+ .boton-reserva-tarjeta{
+ display: block;
+ margin-top: 20px;
+ background-color: green;
+ color: white;
+ border: none;
+ padding: 10px 25px;
+ border-radius: 5px; 
+ cursor: pointer;
+ }
+
+ .boton-reserva-tarjeta:hover{
+  background-color: #00a800;
+ }
+
+
+.ocultar{
+      display: none;
+      animation: slide-up 0.5s ease forwards;
+    }
+
+   
+
+    @keyframes slide-up {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+   
+.ocultar.active  {
+      display: block;
+    }
+
+    .seleccionado {
+      transform: scale(0.9);
+      box-shadow: 0 0 20px #f2bd68;
+      transition: all 0.5s ease-in-out;
+
+    }
+
+.alert-form{
+  color: red;
+  display: block;
+  margin: 5px;
+}
